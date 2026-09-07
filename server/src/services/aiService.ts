@@ -423,8 +423,9 @@ function generateFallbackContent(data: QuestionnaireData): GuideContent {
   const hospitals = getHospitalsByCity(city);
 
   return {
-    title: `Your ${cityName} Medical Travel Guide`,
-    overview: `This guide provides essential information for your ${cityName} medical visit. ${cityName} offers world-class healthcare facilities with international departments that cater to foreign patients.`,
+    title: `Your ${cityName} Travel & Medical Guide`,
+    subtitle: `Explore ${cityName} while accessing world-class medical care`,
+    overview: `This guide provides essential information for your ${cityName} travel and medical visit. ${cityName} offers world-class healthcare facilities with international departments that cater to foreign patients, alongside incredible attractions and experiences.`,
     hospitals: hospitals,
     process: [
       {
@@ -479,6 +480,10 @@ function generateFallbackContent(data: QuestionnaireData): GuideContent {
         description: 'Multiple hotels available near major hospitals',
       },
     ],
+    attractions: [],
+    food: [],
+    itinerary: [],
+    images: [],
     tips: [
       'Bring your passport for hospital registration',
       'International departments usually have English-speaking staff',
