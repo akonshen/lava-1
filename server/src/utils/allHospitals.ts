@@ -1,0 +1,212 @@
+import { City, Hospital } from '../types';
+
+export const ALL_HOSPITALS: Hospital[] = [
+  // ==================== 北京 BEIJING ====================
+  {
+    id: 'bj-001',
+    name: 'Peking Union Medical College Hospital',
+    nameChinese: '北京协和医院',
+    address: '1 Shuaifuyuan, Wangfujing, Dongcheng District, Beijing',
+    city: City.BEIJING,
+    specialties: ['Oncology', 'Cardiology', 'Endocrinology', 'Rheumatology'],
+    internationalDepartment: true,
+    englishStaff: true,
+    jciCertified: true,
+    rating: 4.9,
+    imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800',
+    description: 'One of the most prestigious hospitals in China, founded in 1921. Known for excellent medical care and research.',
+    phone: '+86-10-69156114',
+    website: 'http://www.pumch.cn',
+  },
+  {
+    id: 'bj-002',
+    name: 'Peking University People\'s Hospital',
+    nameChinese: '北京大学人民医院',
+    address: '11 Xizhimen South Street, Xicheng District, Beijing',
+    city: City.BEIJING,
+    specialties: ['Hepatology', 'Hematology', 'Orthopedics'],
+    internationalDepartment: true,
+    englishStaff: true,
+    jciCertified: false,
+    rating: 4.7,
+    imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800',
+    description: 'A leading teaching hospital affiliated with Peking University Health Science Center.',
+    phone: '+86-10-88326666',
+  },
+  {
+    id: 'bj-003',
+    name: 'Beijing Hospital',
+    nameChinese: '北京医院',
+    address: '1 Dahua Road, Dongcheng District, Beijing',
+    city: City.BEIJING,
+    specialties: ['Geriatrics', 'Cardiology', 'Neurology'],
+    internationalDepartment: true,
+    englishStaff: true,
+    jciCertified: false,
+    rating: 4.6,
+    imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800',
+    description: 'National Center for Geriatric Diseases with advanced medical equipment.',
+    phone: '+86-10-85132266',
+  },
+
+  // ==================== 上海 SHANGHAI ====================
+  {
+    id: 'sh-001',
+    name: 'Huashan Hospital',
+    nameChinese: '华山医院',
+    address: '12 Wulumuqi Zhong Road, Xuhui District, Shanghai',
+    city: City.SHANGHAI,
+    specialties: ['Neurosurgery', 'Dermatology', 'Infectious Diseases', 'Plastic Surgery'],
+    internationalDepartment: true,
+    englishStaff: true,
+    jciCertified: true,
+    rating: 4.8,
+    imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800',
+    description: 'Top-ranked hospital in Shanghai with world-class neurosurgery and dermatology departments.',
+    phone: '+86-21-52888888',
+    website: 'http://www.huashan.org.cn',
+  },
+  {
+    id: 'sh-002',
+    name: 'Ruijin Hospital',
+    nameChinese: '瑞金医院',
+    address: '197 Ruijin Er Road, Huangpu District, Shanghai',
+    city: City.SHANGHAI,
+    specialties: ['Hematology', 'Cardiology', 'Orthopedics', 'Endocrinology'],
+    internationalDepartment: true,
+    englishStaff: true,
+    jciCertified: false,
+    rating: 4.7,
+    imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800',
+    description: 'Leading hospital in hematology and transplantation, affiliated with Shanghai Jiao Tong University.',
+    phone: '+86-21-64370045',
+  },
+  {
+    id: 'sh-003',
+    name: 'Shanghai Ninth People\'s Hospital',
+    nameChinese: '上海第九人民医院',
+    address: '639 Zhizaoju Road, Huangpu District, Shanghai',
+    city: City.SHANGHAI,
+    specialties: ['Plastic Surgery', 'Oral Surgery', 'Dermatology'],
+    internationalDepartment: true,
+    englishStaff: true,
+    jciCertified: false,
+    rating: 4.6,
+    imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800',
+    description: 'Famous for plastic surgery and oral maxillofacial surgery, attracting medical tourists worldwide.',
+    phone: '+86-21-23271699',
+  },
+
+  // ==================== 广州 GUANGZHOU ====================
+  {
+    id: 'gz-001',
+    name: 'The First Affiliated Hospital of Sun Yat-sen University',
+    nameChinese: '中山大学附属第一医院',
+    address: '58 Zhongshan Er Road, Yuexiu District, Guangzhou',
+    city: City.GUANGZHOU,
+    specialties: ['Oncology', 'Cardiology', 'Transplantation', 'Neurology'],
+    internationalDepartment: true,
+    englishStaff: true,
+    jciCertified: false,
+    rating: 4.7,
+    imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800',
+    description: 'Premier medical institution in Southern China with comprehensive medical services.',
+    phone: '+86-20-28823388',
+  },
+  {
+    id: 'gz-002',
+    name: 'Guangzhou University of Chinese Medicine Affiliated Hospital',
+    nameChinese: '广州中医药大学第一附属医院',
+    address: '16 Lingnan East Road, Baiyun District, Guangzhou',
+    city: City.GUANGZHOU,
+    specialties: ['TCM', 'Acupuncture', 'Rehabilitation', 'Oncology'],
+    internationalDepartment: true,
+    englishStaff: true,
+    jciCertified: false,
+    rating: 4.5,
+    imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800',
+    description: 'Leading TCM hospital with international patient services and traditional Chinese medicine treatments.',
+    phone: '+86-20-36591222',
+  },
+
+  // ==================== 杭州 HANGZHOU ====================
+  {
+    id: 'hz-001',
+    name: 'Zhejiang University School of Medicine Affiliated First Hospital',
+    nameChinese: '浙江大学医学院附属第一医院',
+    address: '79 Qingchun Road, Hangzhou',
+    city: City.HANGZHOU,
+    specialties: ['TCM', 'Hepatology', 'Infectious Diseases', 'Cardiology'],
+    internationalDepartment: true,
+    englishStaff: true,
+    jciCertified: false,
+    rating: 4.6,
+    imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800',
+    description: 'Leading hospital in liver disease treatment and TCM, affiliated with Zhejiang University.',
+    phone: '+86-571-87236666',
+  },
+  {
+    id: 'hz-002',
+    name: 'Hangzhou First People\'s Hospital',
+    nameChinese: '杭州市第一人民医院',
+    address: '261 Huancheng North Road, Hangzhou',
+    city: City.HANGZHOU,
+    specialties: ['Ophthalmology', 'Dermatology', 'Cardiology'],
+    internationalDepartment: true,
+    englishStaff: true,
+    jciCertified: false,
+    rating: 4.4,
+    imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800',
+    description: 'Comprehensive municipal hospital with modern facilities and international services.',
+    phone: '+86-571-56005600',
+  },
+
+  // ==================== 成都 CHENGDU ====================
+  {
+    id: 'cd-001',
+    name: 'West China Hospital of Sichuan University',
+    nameChinese: '四川大学华西医院',
+    address: '37 Guoxue Alley, Wuhou District, Chengdu',
+    city: City.CHENGDU,
+    specialties: ['Orthopedics', 'TCM', 'Rehabilitation', 'Oncology'],
+    internationalDepartment: true,
+    englishStaff: true,
+    jciCertified: true,
+    rating: 4.8,
+    imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800',
+    description: 'One of the largest hospitals in Western China with excellent rehabilitation and TCM services.',
+    phone: '+86-28-85422114',
+    website: 'http://www.wchscu.cn',
+  },
+  {
+    id: 'cd-002',
+    name: 'Chengdu University of TCM Affiliated Hospital',
+    nameChinese: '成都中医药大学附属医院',
+    address: '39 Shierqiao Road, Jinniu District, Chengdu',
+    city: City.CHENGDU,
+    specialties: ['TCM', 'Acupuncture', 'Herbal Medicine', 'Rehabilitation'],
+    internationalDepartment: true,
+    englishStaff: true,
+    jciCertified: false,
+    rating: 4.5,
+    imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800',
+    description: 'Premier TCM hospital offering authentic traditional Chinese medicine treatments.',
+    phone: '+86-28-87732407',
+  },
+];
+
+export const getHospitalsByCity = (city: City): Hospital[] => {
+  return ALL_HOSPITALS.filter((hospital) => hospital.city === city);
+};
+
+export const getHospitalById = (id: string): Hospital | undefined => {
+  return ALL_HOSPITALS.find((hospital) => hospital.id === id);
+};
+
+export const getJCIHospitals = (): Hospital[] => {
+  return ALL_HOSPITALS.filter((hospital) => hospital.jciCertified);
+};
+
+export const getHospitalsWithEnglishStaff = (): Hospital[] => {
+  return ALL_HOSPITALS.filter((hospital) => hospital.englishStaff);
+};
