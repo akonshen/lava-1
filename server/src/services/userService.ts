@@ -274,11 +274,15 @@ export const userService = {
 
   // Log user activity
   async logActivity(userId: string, action: string, details?: any, ipAddress?: string, userAgent?: string): Promise<void> {
+    let detailsStr: string | null = null;
+    if (details) {
+      detailsStr = typeof details === 'string' ? details : JSON.stringify(details);
+    }
     await prisma.userActivity.create({
       data: {
         userId,
         action,
-        details,
+        details: detailsStr,
         ipAddress,
         userAgent,
       },
