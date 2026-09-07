@@ -42,9 +42,36 @@ export interface Hospital {
   imageUrl: string;
 }
 
+export interface Attraction {
+  name: string;
+  nameChinese: string;
+  category: string;
+  description: string;
+  duration: string;
+  imageUrl?: string;
+}
+
+export interface FoodSuggestion {
+  name: string;
+  category: string;
+  description: string;
+  priceRange: string;
+  mustTry: boolean;
+}
+
+export interface ItineraryDay {
+  day: number;
+  title: string;
+  activities: string[];
+  meals: string[];
+  imageUrl?: string;
+}
+
 export interface GuideContent {
   title: string;
+  subtitle: string;
   overview: string;
+  heroImage?: string;
   hospitals: Hospital[];
   process: {
     step: number;
@@ -66,6 +93,10 @@ export interface GuideContent {
     taxiRide: string;
     estimatedCost: string;
   };
+  attractions: Attraction[];
+  food: FoodSuggestion[];
+  itinerary: ItineraryDay[];
+  images: string[];
   tips: string[];
   emergencyContacts: {
     name: string;

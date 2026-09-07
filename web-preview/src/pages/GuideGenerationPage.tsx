@@ -31,8 +31,10 @@ export const GuideGenerationPage: React.FC = () => {
 
       // Generate mock guide content
       setGuideContent({
-        title: `Your ${city?.name} Medical Guide`,
-        overview: `This personalized guide will help you navigate ${city?.name}'s healthcare system during your visit. Based on your requirements, we've curated the best hospitals, estimated costs, and step-by-step processes.`,
+        title: `Your ${city?.name} Travel & Medical Guide`,
+        subtitle: `Explore ${city?.name} while accessing world-class medical care`,
+        overview: `This personalized travel and medical guide will help you explore ${city?.name} while accessing its healthcare system. We've combined must-see attractions, local food, and top hospitals into one comprehensive itinerary.`,
+        heroImage: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800',
         hospitals: [
           {
             id: '1',
@@ -98,11 +100,89 @@ export const GuideGenerationPage: React.FC = () => {
           taxiRide: 'Taxis are readily available; use DiDi app for convenience',
           estimatedCost: '¥50-150 ($7-21 USD)',
         },
+        attractions: [
+          {
+            name: 'The Bund',
+            nameChinese: '外滩',
+            category: 'Scenic',
+            description: 'Walk along the historic waterfront and admire the colonial architecture across from the Pudong skyline.',
+            duration: '2 hours',
+            imageUrl: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800',
+          },
+          {
+            name: 'Yu Garden',
+            nameChinese: '豫园',
+            category: 'Historical',
+            description: 'A classical Ming dynasty garden with beautiful rockeries, pavilions and koi ponds.',
+            duration: '1.5 hours',
+            imageUrl: 'https://images.unsplash.com/photo-1590603667614-8a2447d7b6b3?w=800',
+          },
+          {
+            name: 'Shanghai Tower',
+            nameChinese: '上海中心大厦',
+            category: 'Landmark',
+            description: 'Visit the observation deck of China\u2019s tallest building for panoramic views.',
+            duration: '2 hours',
+            imageUrl: 'https://images.unsplash.com/photo-1531572753322-ad063cecc140?w=800',
+          },
+        ],
+        food: [
+          {
+            name: 'Xiaolongbao (Soup Dumplings)',
+            category: 'Local Specialty',
+            description: 'Steamed dumplings filled with hot broth and pork \u2014 a Shanghai must-try.',
+            priceRange: '30-60 CNY',
+            mustTry: true,
+          },
+          {
+            name: 'Shengjianbao',
+            category: 'Local Specialty',
+            description: 'Pan-fried pork buns with a crispy bottom, often found at breakfast stalls.',
+            priceRange: '10-25 CNY',
+            mustTry: true,
+          },
+          {
+            name: 'Benbang Cuisine',
+            category: 'Restaurant',
+            description: 'Traditional Shanghai cuisine featuring red-braised pork and freshwater fish.',
+            priceRange: '100-300 CNY',
+            mustTry: false,
+          },
+        ],
+        itinerary: [
+          {
+            day: 1,
+            title: 'Arrival & The Bund',
+            activities: [
+              'Arrive at Shanghai, check in to hotel',
+              'Afternoon: Walk along The Bund',
+              'Evening: Dinner at a local restaurant',
+            ],
+            meals: ['Breakfast at hotel', 'Lunch at Nanxiang Steamed Bun Restaurant', 'Dinner near the Bund'],
+            imageUrl: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800',
+          },
+          {
+            day: 2,
+            title: 'Hospital Visit & Yu Garden',
+            activities: [
+              'Morning: Hospital appointment at Huashan or Ruijin Hospital',
+              'Afternoon: Explore Yu Garden and nearby bazaar',
+              'Evening: Cruise on the Huangpu River',
+            ],
+            meals: ['Breakfast at hotel', 'Lunch near Yu Garden', 'Dinner at a Shanghai restaurant'],
+            imageUrl: 'https://images.unsplash.com/photo-1590603667614-8a2447d7b6b3?w=800',
+          },
+        ],
+        images: [
+          'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800',
+          'https://images.unsplash.com/photo-1531572753322-ad063cecc140?w=800',
+        ],
         tips: [
           'Bring your passport for hospital registration',
           'International departments usually have English-speaking staff',
           'Payment via Alipay, WeChat Pay, or credit card is accepted',
           'Medical records from your home country are helpful',
+          'Download a translation app like Google Translate for easier communication',
         ],
         emergencyContacts: [
           { name: 'Ambulance', number: '120', description: 'Emergency medical services' },

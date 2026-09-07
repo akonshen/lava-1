@@ -34,6 +34,8 @@ export const GuideDisplayPage: React.FC = () => {
     );
   }
 
+  const heroImage = guideContent.heroImage || guideContent.images?.[0];
+
   return (
     <div>
       {/* Header */}
@@ -45,30 +47,163 @@ export const GuideDisplayPage: React.FC = () => {
 
       {/* Content */}
       <div className="page">
-        {/* Guide Header */}
-        <div className="guide-header">
-          <h1 className="guide-title">{guideContent.title}</h1>
-          <p className="guide-city">Shanghai</p>
-        </div>
-
-        {/* Table of Contents */}
-        <div className="section">
-          <h2 className="section-title">📋 Table of Contents</h2>
-          <div className="toc-list">
-            <div className="toc-item">1. Overview</div>
-            <div className="toc-item">2. Recommended Hospitals</div>
-            <div className="toc-item">3. Step-by-Step Process</div>
-            <div className="toc-item">4. Cost Estimates</div>
-            <div className="toc-item">5. Transportation</div>
-            <div className="toc-item">6. Tips & Notes</div>
+        {/* Hero Image */}
+        {heroImage && (
+          <div style={{
+            width: '100%',
+            height: '200px',
+            borderRadius: '16px',
+            overflow: 'hidden',
+            marginBottom: '20px',
+            position: 'relative',
+          }}>
+            <img
+              src={heroImage}
+              alt={guideContent.title}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+            <div style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              padding: '16px',
+              background: 'linear-gradient(transparent, rgba(0,0,0,0.8))',
+            }}>
+              <h1 style={{ color: 'white', fontSize: '22px', fontWeight: 700, margin: 0 }}>
+                {guideContent.title}
+              </h1>
+              {guideContent.subtitle && (
+                <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '13px', margin: '4px 0 0' }}>
+                  {guideContent.subtitle}
+                </p>
+              )}
+            </div>
           </div>
-        </div>
+        )}
+
+        {!heroImage && (
+          <div className="guide-header">
+            <h1 className="guide-title">{guideContent.title}</h1>
+            {guideContent.subtitle && (
+              <p style={{ fontSize: '14px', color: '#6B7280', textAlign: 'center', margin: '4px 0 0' }}>
+                {guideContent.subtitle}
+              </p>
+            )}
+          </div>
+        )}
 
         {/* Overview */}
         <div className="section">
-          <h2 className="section-title">1. Overview</h2>
+          <h2 className="section-title">✨ Overview</h2>
           <p className="overview-text">{guideContent.overview}</p>
         </div>
+
+        {/* Day-by-Day Itinerary */}
+        {guideContent.itinerary && guideContent.itinerary.length > 0 && (
+          <div className="section">
+            <h2 className="section-title">🗓️ Day-by-Day Itinerary</h2>
+            {guideContent.itinerary.map((day) => (
+              <div key={day.day} style={{
+                background: '#F9FAFB',
+                borderRadius: '12px',
+                padding: '16px',
+                marginBottom: '12px',
+              }}>
+                <h3 style={{ fontSize: '16px', fontWeight: 700, color: '#2563EB', marginBottom: '8px' }}>
+                  Day {day.day}: {day.title}
+                </h3>
+                {day.imageUrl && (
+                  <img
+                    src={day.imageUrl}
+                    alt={day.title}
+                    style={{ width: '100%', height: '120px', objectFit: 'cover', borderRadius: '8px', marginBottom: '8px' }}
+                  />
+                )}
+                <div style={{ fontSize: '14px', color: '#374151' }}>
+                  {day.activities.map((act, i) => (
+                    <div key={i} style={{ marginBottom: '4px' }}>📍 {act}</div>
+                  ))}
+                </div>
+                {day.meals && day.meals.length > 0 && (
+                  <div style={{ marginTop: '8px', fontSize: '13px', color: '#6B7280' }}>
+                    🍽️ {day.meals.join(' · ')}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Top Attractions */}
+        {guideContent.attractions && guideContent.attractions.length > 0 && (
+          <div className="section">
+            <h2 className="section-title">🏛️ Must-See Attractions</h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {guideContent.attractions.map((attr, index) => (
+                <div key={index} style={{
+                  background: '#fff',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  border: '1px solid #E5E7EB',
+                }}>
+                  {attr.imageUrl && (
+                    <img
+                      src={attr.imageUrl}
+                      alt={attr.name}
+                      style={{ width: '100%', height: '140px', objectFit: 'cover' }}
+                    />
+                  )}
+                  <div style={{ padding: '12px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <h3 style={{ fontSize: '16px', fontWeight: 700, margin: 0 }}>{attr.name}</h3>
+                      <span style={{ fontSize: '12px', color: '#6B7280' }}>{attr.nameChinese}</span>
+                    </div>
+                    <div style={{ marginTop: '4px' }}>
+                      <span style={{ fontSize: '11px', background: '#EEF2FF', color: '#2563EB', padding: '2px 8px', borderRadius: '10px' }}>
+                        {attr.category}
+                      </span>
+                    </div>
+                    <p style={{ fontSize: '13px', color: '#374151', marginTop: '8px', marginBottom: '4px' }}>
+                      {attr.description}
+                    </p>
+                    <div style={{ fontSize: '12px', color: '#6B7280' }}>⏱ {attr.duration}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Local Food */}
+        {guideContent.food && guideContent.food.length > 0 && (
+          <div className="section">
+            <h2 className="section-title">🍜 Must-Try Food</h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              {guideContent.food.map((f, index) => (
+                <div key={index} style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  background: '#F9FAFB',
+                  borderRadius: '10px',
+                  padding: '12px',
+                }}>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: '15px', fontWeight: 600 }}>
+                      {f.name} {f.mustTry && <span style={{ fontSize: '11px', color: '#DC2626' }}>★</span>}
+                    </div>
+                    <div style={{ fontSize: '12px', color: '#6B7280' }}>{f.category}</div>
+                    <p style={{ fontSize: '13px', color: '#374151', margin: '4px 0 0' }}>{f.description}</p>
+                  </div>
+                  <div style={{ fontSize: '12px', fontWeight: 600, color: '#2563EB', marginLeft: '8px', whiteSpace: 'nowrap' }}>
+                    {f.priceRange}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Recommended Hospitals */}
         <div className="section">
@@ -105,7 +240,7 @@ export const GuideDisplayPage: React.FC = () => {
 
         {/* Step-by-Step Process */}
         <div className="section">
-          <h2 className="section-title">3. Step-by-Step Process</h2>
+          <h2 className="section-title">3. Medical Process</h2>
           {guideContent.process.map((step) => (
             <div key={step.step} className="process-step">
               <div className="step-number">
