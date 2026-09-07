@@ -21,7 +21,11 @@ app.use(helmet());
 
 // CORS configuration
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:8081',
+  origin: [
+    process.env.CORS_ORIGIN || 'http://localhost:8081',
+    'https://web-preview-taupe.vercel.app',
+    'https://web-preview.vercel.app',
+  ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],

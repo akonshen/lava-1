@@ -106,7 +106,10 @@ export const WelcomePage: React.FC = () => {
           Get Started
         </button>
         <p className="sign-in-text" style={{ marginTop: '16px' }}>
-          Already have an account? <span className="sign-in-link">Sign In</span>
+          Already have an account?{' '}
+          <span className="sign-in-link" onClick={() => navigate('/login')} style={{ cursor: 'pointer' }}>
+            Sign In
+          </span>
         </p>
       </div>
     </div>
