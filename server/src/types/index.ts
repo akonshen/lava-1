@@ -99,14 +99,45 @@ export interface AccommodationSuggestion {
   description: string;
 }
 
+export interface Attraction {
+  name: string;
+  nameChinese: string;
+  category: string;
+  description: string;
+  duration: string;
+  imageUrl?: string;
+}
+
+export interface FoodSuggestion {
+  name: string;
+  category: string;
+  description: string;
+  priceRange: string;
+  mustTry: boolean;
+}
+
+export interface ItineraryDay {
+  day: number;
+  title: string;
+  activities: string[];
+  meals: string[];
+  imageUrl?: string;
+}
+
 export interface GuideContent {
   title: string;
+  subtitle: string;
   overview: string;
+  heroImage?: string;
   hospitals: Hospital[];
   process: ProcessStep[];
   costs: CostEstimate[];
   transportation: TransportationInfo;
   accommodation: AccommodationSuggestion[];
+  attractions: Attraction[];
+  food: FoodSuggestion[];
+  itinerary: ItineraryDay[];
+  images: string[];
   tips: string[];
   culturalNotes?: string[];
   emergencyContacts: EmergencyContact[];

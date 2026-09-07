@@ -39,7 +39,7 @@ export const RegisterPage: React.FC = () => {
         throw new Error(data.error || 'Registration failed');
       }
 
-      localStorage.setItem('token', data.session.token);
+      localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data.user));
       navigate('/city');
     } catch (err: any) {

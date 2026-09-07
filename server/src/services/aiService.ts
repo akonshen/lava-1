@@ -141,7 +141,7 @@ function createGuidePrompt(
   specificNeeds: string | undefined,
   hospitals: any[]
 ): string {
-  return `Generate a comprehensive medical travel guide for a Western tourist visiting ${cityName} who needs ${medicalTypeName} services.
+  return `Generate a comprehensive, illustrated TRAVEL AND MEDICAL guide for a Western tourist visiting ${cityName}, China. This must be a full travel guide that combines tourism with medical services - NOT a purely medical guide.
 
 Traveler Information:
 - City: ${cityName} (${cityData.nameChinese})
@@ -151,13 +151,16 @@ Traveler Information:
 - Preferred Language: ${languageName}
 ${specificNeeds ? `- Specific Needs: ${specificNeeds}` : ''}
 
+This guide is for a tourist who is also a patient. They want to explore the city AND access medical care. Balance BOTH aspects equally.
+
 Available Hospitals in ${cityName}:
 ${hospitals.map(h => `- ${h.name} (${h.nameChinese}): ${h.specialties.join(', ')} | JCI: ${h.jciCertified ? 'Yes' : 'No'} | English Staff: ${h.englishStaff ? 'Yes' : 'No'}`).join('\n')}
 
 Generate a detailed guide with the following JSON structure:
 {
-  "title": "Your ${cityName} Medical Travel Guide",
-  "overview": "A comprehensive overview of medical tourism in ${cityName} for ${medicalTypeName}",
+  "title": "Your ${cityName} Travel & Medical Guide",
+  "subtitle": "Explore ${cityName} while accessing world-class medical care",
+  "overview": "A balanced overview of experiencing ${cityName} as a tourist while accessing ${medicalTypeName} medical care",
   "process": [
     {
       "step": 1,
@@ -192,6 +195,39 @@ Generate a detailed guide with the following JSON structure:
       "description": "Brief description"
     }
   ],
+  "attractions": [
+    {
+      "name": "Attraction name",
+      "nameChinese": "中文名",
+      "category": "Landmark/Museum/Historical/Entertainment/Scenic",
+      "description": "What to see and do",
+      "duration": "Recommended visit time",
+      "imageUrl": "https://example.com/attraction-image.jpg"
+    }
+  ],
+  "food": [
+    {
+      "name": "Dish/restaurant name",
+      "category": "Local specialty/Restaurant type",
+      "description": "What it is and why to try it",
+      "priceRange": "Price range in CNY",
+      "mustTry": true
+    }
+  ],
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Day 1 title",
+      "activities": ["Morning activity", "Afternoon activity", "Medical appointment"],
+      "meals": ["Breakfast recommendation", "Lunch recommendation", "Dinner recommendation"],
+      "imageUrl": "https://example.com/day1-image.jpg"
+    }
+  ],
+  "images": [
+    "https://example.com/hero-image.jpg",
+    "https://example.com/cityscape.jpg",
+    "https://example.com/food.jpg"
+  ],
   "tips": [
     "Important practical tip 1",
     "Important practical tip 2",
@@ -209,14 +245,14 @@ Generate a detailed guide with the following JSON structure:
   ]
 }
 
-Focus on:
-1. Practical step-by-step guidance for the medical visit
-2. Cost estimates in CNY with USD equivalents
-3. Transportation options with specific details
-4. Language support and translation tips
-5. Cultural considerations for Western tourists
-6. Safety and quality assurance
-7. Accommodation recommendations near hospitals
+Critical Requirements:
+1. This is a TRAVEL guide first. Include must-see attractions, landmarks, and experiences for ${cityName}.
+2. Integrate medical visits into the travel itinerary naturally (e.g. "Morning: visit The Bund, Afternoon: hospital appointment").
+3. Recommend local food and restaurants the tourist must try.
+4. Provide a day-by-day itinerary that mixes sightseeing with medical appointments.
+5. Include ${medicalTypeName} medical cost estimates in CNY with USD equivalents.
+6. Suggest accommodation convenient to BOTH hospitals and tourist attractions.
+7. Keep emergency medical contacts prominent.
 
 Return ONLY the JSON object, no additional text.`;
 }
@@ -246,8 +282,10 @@ function parseAIResponse(response: string): any {
 // Create guide content from parsed AI response
 function createGuideContent(parsed: any, cityName: string, hospitals: any[]): GuideContent {
   return {
-    title: parsed.title || `Your ${cityName} Medical Guide`,
+    title: parsed.title || `Your ${cityName} Travel & Medical Guide`,
+    subtitle: parsed.subtitle || `Explore ${cityName} while accessing world-class medical care`,
     overview: parsed.overview || '',
+    heroImage: parsed.heroImage || parsed.images?.[0],
     hospitals: hospitals,
     process: parsed.process || [],
     costs: parsed.costs || [],
@@ -259,6 +297,10 @@ function createGuideContent(parsed: any, cityName: string, hospitals: any[]): Gu
       estimatedCost: '',
     },
     accommodation: parsed.accommodation || [],
+    attractions: parsed.attractions || [],
+    food: parsed.food || [],
+    itinerary: parsed.itinerary || [],
+    images: parsed.images || [],
     tips: parsed.tips || [],
     culturalNotes: parsed.culturalNotes || [],
     emergencyContacts: parsed.emergencyContacts || [
