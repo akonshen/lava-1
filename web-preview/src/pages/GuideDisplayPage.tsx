@@ -99,6 +99,79 @@ export const GuideDisplayPage: React.FC = () => {
           <p className="overview-text">{guideContent.overview}</p>
         </div>
 
+        {/* Before You Depart */}
+        {guideContent.beforeYouDepart && (
+          <div className="section">
+            <h2 className="section-title">🧳 Before You Depart</h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {Object.entries(guideContent.beforeYouDepart).map(([key, value]) => {
+                if (!value) return null;
+                const labels: Record<string, string> = {
+                  visa: 'Visa', simCard: 'SIM Card', vpn: 'VPN', paymentApps: 'Payment Apps',
+                  currency: 'Currency & Cash', powerAdapter: 'Power Adapter', travelInsurance: 'Travel Insurance',
+                  documents: 'Documents', appsToDownload: 'Apps to Download',
+                };
+                return (
+                  <div key={key} style={{ background: '#F9FAFB', borderRadius: '10px', padding: '10px' }}>
+                    <div style={{ fontSize: '12px', fontWeight: 700, color: '#2563EB', marginBottom: '2px' }}>
+                      {labels[key] || key}
+                    </div>
+                    <div style={{ fontSize: '13px', color: '#374151' }}>{value}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Payment & Money */}
+        {guideContent.paymentAndMoney && (
+          <div className="section">
+            <h2 className="section-title">💳 Payment & Money</h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {Object.entries(guideContent.paymentAndMoney).map(([key, value]) => {
+                if (!value) return null;
+                const labels: Record<string, string> = {
+                  cardUsage: 'Card Usage', settingUpAlipay: 'Set Up Alipay', settingUpWeChat: 'Set Up WeChat Pay',
+                  cashAndAtms: 'Cash & ATMs', foreignerFees: 'Foreigner Fees', talkingPayment: 'Payment Phrases',
+                };
+                return (
+                  <div key={key} style={{ background: '#F9FAFB', borderRadius: '10px', padding: '10px' }}>
+                    <div style={{ fontSize: '12px', fontWeight: 700, color: '#2563EB', marginBottom: '2px' }}>
+                      {labels[key] || key}
+                    </div>
+                    <div style={{ fontSize: '13px', color: '#374151' }}>{value}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Medical Visit */}
+        {guideContent.medicalVisit && (
+          <div className="section">
+            <h2 className="section-title">🩺 Your Medical Visit</h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {Object.entries(guideContent.medicalVisit).map(([key, value]) => {
+                if (!value) return null;
+                const labels: Record<string, string> = {
+                  registration: 'Registration', interpreter: 'Interpreter', paymentAtHospital: 'Payment at Hospital',
+                  records: 'Medical Records', pharmacy: 'Pharmacy', englishSupport: 'English Support',
+                };
+                return (
+                  <div key={key} style={{ background: '#F9FAFB', borderRadius: '10px', padding: '10px' }}>
+                    <div style={{ fontSize: '12px', fontWeight: 700, color: '#2563EB', marginBottom: '2px' }}>
+                      {labels[key] || key}
+                    </div>
+                    <div style={{ fontSize: '13px', color: '#374151' }}>{value}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
         {/* Day-by-Day Itinerary */}
         {guideContent.itinerary && guideContent.itinerary.length > 0 && (
           <div className="section">
@@ -290,8 +363,20 @@ export const GuideDisplayPage: React.FC = () => {
               <div className="transport-value">{guideContent.transportation.fromAirport}</div>
             </div>
             <div className="transport-item">
-              <div className="transport-label">To Hospital</div>
-              <div className="transport-value">{guideContent.transportation.toHospital}</div>
+              <div className="transport-label">Metro</div>
+              <div className="transport-value">{guideContent.transportation.metro}</div>
+            </div>
+            <div className="transport-item">
+              <div className="transport-label">DiDi</div>
+              <div className="transport-value">{guideContent.transportation.didi}</div>
+            </div>
+            <div className="transport-item">
+              <div className="transport-label">Taxi</div>
+              <div className="transport-value">{guideContent.transportation.taxiRide}</div>
+            </div>
+            <div className="transport-item">
+              <div className="transport-label">Hotel Check-in</div>
+              <div className="transport-value">{guideContent.transportation.hotelArrival}</div>
             </div>
             <div className="transport-item">
               <div className="transport-label">Estimated Cost</div>

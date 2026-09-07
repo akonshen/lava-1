@@ -73,6 +73,33 @@ export interface GuideContent {
   overview: string;
   heroImage?: string;
   hospitals: Hospital[];
+  beforeYouDepart: {
+    visa: string;
+    simCard: string;
+    vpn: string;
+    paymentApps: string;
+    currency: string;
+    powerAdapter: string;
+    travelInsurance: string;
+    documents: string;
+    appsToDownload: string;
+  };
+  paymentAndMoney: {
+    cardUsage: string;
+    settingUpAlipay: string;
+    settingUpWeChat: string;
+    cashAndAtms: string;
+    foreignerFees: string;
+    talkingPayment: string;
+  };
+  medicalVisit: {
+    registration: string;
+    interpreter: string;
+    paymentAtHospital: string;
+    records: string;
+    pharmacy: string;
+    englishSupport: string;
+  };
   process: {
     step: number;
     title: string;
@@ -88,9 +115,10 @@ export interface GuideContent {
   }[];
   transportation: {
     fromAirport: string;
-    toHospital: string;
-    publicTransit: string;
+    metro: string;
+    didi: string;
     taxiRide: string;
+    hotelArrival: string;
     estimatedCost: string;
   };
   attractions: Attraction[];

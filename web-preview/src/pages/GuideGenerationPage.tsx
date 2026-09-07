@@ -35,6 +35,33 @@ export const GuideGenerationPage: React.FC = () => {
         subtitle: `Explore ${city?.name} while accessing world-class medical care`,
         overview: `This personalized travel and medical guide will help you explore ${city?.name} while accessing its healthcare system. We've combined must-see attractions, local food, and top hospitals into one comprehensive itinerary.`,
         heroImage: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800',
+        beforeYouDepart: {
+          visa: 'Check if you need a visa; many passports get 15-day visa-free entry, otherwise apply for an L visa in advance.',
+          simCard: 'Buy a Chinese SIM at the airport (China Mobile/Unicom/Telecom) with your passport, ~50-100 CNY, or use an eSIM.',
+          vpn: 'Google, WhatsApp, Instagram, Facebook are BLOCKED in China. Install a VPN (Astrill, LetsVPN, ExpressVPN) BEFORE you depart.',
+          paymentApps: 'Set up Alipay and WeChat Pay with your foreign card and passport before or right after arrival.',
+          currency: 'Carry 500-1000 CNY cash. Exchange at the airport or 5-star hotels. Use Bank of China/ICBC ATMs for international cards.',
+          powerAdapter: 'China uses Type A/C sockets at 220V. Bring a universal adapter and check voltage compatibility.',
+          travelInsurance: 'Medical travel insurance is essential - ensure it covers emergency care and repatriation in China.',
+          documents: 'Carry your passport, visa, translated medical records, prescriptions, emergency contacts, and hotel confirmation.',
+          appsToDownload: 'Install before/after arrival: DiDi, Alipay, WeChat, Baidu Maps or Amap, Trip.com, Metroman, Google Translate (offline), and your VPN.',
+        },
+        paymentAndMoney: {
+          cardUsage: 'Visa/Mastercard are NOT widely accepted in China. You MUST use Alipay/WeChat Pay or cash in most places.',
+          settingUpAlipay: 'Download Alipay, register with your foreign phone number, link a Visa/Mastercard, and complete passport identity verification.',
+          settingUpWeChat: 'Download WeChat, register with your phone number, then set up WeChat Pay by linking a card and verifying identity.',
+          cashAndAtms: 'Get cash at the airport exchange, hotel exchange, or Bank of China ATMs. Withdrawals usually allow ~2500 CNY per day.',
+          foreignerFees: 'Some merchants may decline foreign cards or charge fees. Carry cash as a reliable backup.',
+          talkingPayment: 'Useful phrases: Shuākǎ (card), Xiànjīn (cash), Wǒ kěyǐ shuā qiǎ ma? (can I pay by card?)',
+        },
+        medicalVisit: {
+          registration: 'Go to the International Department (国际部). Bring your passport, fill registration forms, expect to wait 15-60 minutes.',
+          interpreter: 'Ask the hospital if they provide an interpreter. Otherwise use a translation app or hire a medical interpreter (~200-500 CNY/hour).',
+          paymentAtHospital: 'Most hospitals require upfront payment for outpatient care. They accept Alipay, WeChat Pay, and some accept foreign cards at international departments.',
+          records: 'Bring your translated medical records. Most international departments accept English records; otherwise get them translated in advance.',
+          pharmacy: 'Fill prescriptions at the hospital pharmacy or big chains like Hepo (国大药房). Show the prescription in Chinese and pay via Alipay/cash.',
+          englishSupport: 'The listed hospitals have international departments with English-speaking staff - confirm when booking.',
+        },
         hospitals: [
           {
             id: '1',
@@ -94,11 +121,12 @@ export const GuideGenerationPage: React.FC = () => {
           { service: 'Blood Test', minCost: 50, maxCost: 200, currency: 'CNY' },
         ],
         transportation: {
-          fromAirport: 'Take the airport express train or taxi to the city center',
-          toHospital: 'Use DiDi (Chinese Uber) or taxi to reach the hospital',
-          publicTransit: 'Metro and buses are available and affordable',
-          taxiRide: 'Taxis are readily available; use DiDi app for convenience',
-          estimatedCost: '¥50-150 ($7-21 USD)',
+          fromAirport: 'Take the airport express/metro line to the city center, or a DiDi/taxi (~100-200 CNY from the airport).',
+          metro: 'Buy a single-journey ticket at the machine (cash/card, English interface) or a transport card. Know the exact line and station for your hotel and hospital.',
+          didi: 'Use Didi Chuxing (滴滴出行) - foreigners can use the Alipay mini-program to book rides. Set up Alipay first, then access Didi inside it.',
+          taxiRide: 'Flag a taxi, show the Chinese destination characters, use the meter, and pay cash or via Alipay/WeChat.',
+          hotelArrival: 'Confirm your hotel can host foreigners (涉外酒店) before booking - use Booking.com/Agoda which only list foreigner-friendly hotels.',
+          estimatedCost: 'Budget ~30-100 CNY/day: metro single fare 2-6 CNY, DiDi 20-50 CNY per trip.',
         },
         attractions: [
           {
